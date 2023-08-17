@@ -1,15 +1,15 @@
-import Portal from "../Portal/Portal"
+import Portal from '../Portal/Portal'
 import classes from './Modal.module.scss'
-
 
 const Modal = ({ children, isOpen, handleClose }) => {
   if (!isOpen) return null
+
   return (
-    <Portal wrapperId='portal-modal-container'>
+    <Portal wrapperId="portal-modal-container">
       <div className={classes.modal}>
         <div className={classes.modalContent}>
           <button onClick={handleClose}>X</button>
-            {children}
+          {children}
         </div>
       </div>
     </Portal>

@@ -1,7 +1,7 @@
-import { useLayoutEffect, useState } from "react"
-import { createPortal } from "react-dom"
+import { useLayoutEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
-const createWrapperEleAndAppendToBody = (wrapperId) => {
+const createWrapperEleAndAppendToBody = wrapperId => {
   const ele = document.createElement('div')
   ele.setAttribute('id', wrapperId)
   document.body.append(ele)
@@ -28,7 +28,7 @@ const Portal = ({ children, wrapperId }) => {
     }
   }, [])
 
-  if(!wrapperEle) return null
+  if (!wrapperEle) return null
   return createPortal(children, wrapperEle)
 }
 

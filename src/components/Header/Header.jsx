@@ -8,9 +8,12 @@ const Header = () => {
     <header className={classes.header}>
       <div>Task Tracker</div>
       <button onClick={() => setIsTaskCreatorOpen(true)}>+ Create Task</button>
-      {
-        isTaskCreatorOpen && <TaskCreator isOpen={isTaskCreatorOpen} setIsOpen={setIsTaskCreatorOpen}/>
-      }
+      {isTaskCreatorOpen && (
+        <TaskCreator
+          isOpen={isTaskCreatorOpen}
+          setIsOpen={setIsTaskCreatorOpen}
+        />
+      )}
     </header>
   )
 }

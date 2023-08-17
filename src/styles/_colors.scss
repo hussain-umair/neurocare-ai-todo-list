@@ -1,0 +1,12 @@
+$colors: (
+  'primary': #5f99afff,
+  'primary--light': light(#5f99afff)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@function light($color-name) {
+  @return mix($color-name, #fff, 50%);
+}

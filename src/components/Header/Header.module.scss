@@ -1,0 +1,11 @@
+@import '../../styles/mixins';
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 16px;
+    @include boxShadow
+}

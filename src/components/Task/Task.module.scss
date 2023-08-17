@@ -1,0 +1,14 @@
+.taskContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid black;
+  }
+}
+
+.inputTitleContainer {
+  display: flex;
+  gap: 1rem;
+}

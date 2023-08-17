@@ -1,0 +1,16 @@
+@import '../../styles/colors';
+
+.filtersContainer {
+  display: flex;
+  gap: 0.5rem;
+  > button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+}
+
+.selected {
+  background-color: color('primary');
+  color: white;
+}

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useDeferredValue } from 'react'
 
 import { useTask } from '../../contexts/Tasks'
 import { taskFilters } from '../../utils/constants'
@@ -6,22 +6,20 @@ import Task from '../Task'
 import classes from './TaskList.module.scss'
 import Filters from '../Filters'
 
+const filtersFnMap = {
+  all: () => true,
+  completed: task => task.isCompleted,
+  incomplete: task => !task.isCompleted,
+}
+
 const TaskList = () => {
   const { tasks, deleteTask, updateTask } = useTask()
   const [filter, setFilter] = useState(taskFilters[0])
-
-  const filtersFn = useMemo(
-    () => ({
-      all: () => true,
-      completed: task => task.isCompleted,
-      incomplete: task => !task.isCompleted,
-    }),
-    [],
-  )
+  const deferredFilter = useDeferredValue(filter)
 
   const filteredTasks = useMemo(
-    () => tasks.filter(filtersFn[filter]),
-    [tasks, filter],
+    () => tasks.filter(filtersFnMap[deferredFilter]),
+    [tasks, deferredFilter],
   )
 
   return (
